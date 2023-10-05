@@ -31,6 +31,10 @@ urlpatterns = [
     path('blog/<slug:slug>/', BlogDetailView, name='blog-detail'),
     path('link/<slug:slug>/', cpa_detail, name='cpa-detail'),
     path('all-blogs-category-wise/', all_blogs_category_wise, name='all-blogs-category-wise'),
+    path('collect-email/', collect_email, name='collect_email'),
+    path('submit-contact/', submit_contact, name='submit-contact'),
+    path('submit-user-data/', submit_user_data, name='submit_user_data'),
+
     path('all-blogs-category-wise/<slug:category_slug>/', all_blogs_category_wise, name='all-blogs-by-category'),
 ]
 if settings.DEBUG:

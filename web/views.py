@@ -212,3 +212,62 @@ def my_view(request):
     }
 
     return render(request, 'base.html', context)
+
+
+def collect_email(request):
+    response_data = {}  # Initialize a dictionary for the response data
+
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        if email:
+            # Save the email address to the database
+            user_email = UserEmail(email=email)
+            user_email.save()
+
+            response_data['success'] = True
+            response_data['message'] = 'Thank you for submitting your email!'
+        else:
+            response_data['success'] = False
+            response_data['message'] = 'Please provide a valid email address.'
+
+    return JsonResponse(response_data)
+
+def submit_contact(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+
+        if name and email and subject and message:
+            # Save the contact message to the database
+            contact_message = ContactMessage(name=name, email=email, subject=subject, message=message)
+            contact_message.save()
+
+            return JsonResponse({'message': 'Message sent successfully'})
+        else:
+            return JsonResponse({'error': 'Please provide all required information'})
+
+    return JsonResponse({'error': 'Invalid request method'})
+
+
+
+def submit_user_data(request):
+    if request.method == 'POST':
+        # Retrieve user data from the form
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        country = request.POST.get('country')
+        phone_number = request.POST.get('phone')
+        country_code = request.POST.get('countryCode')  # Get the selected country code
+
+        # Concatenate the country code and phone number
+        full_phone_number = f"+{country_code} {phone_number}"
+
+        # Create a new UserData instance and save it
+        user_data = UserData(name=name, email=email, country=country, phone_number=full_phone_number)
+        user_data.save()
+
+        return JsonResponse({'success': True})
+
+    return JsonResponse({'success': False})

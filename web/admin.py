@@ -32,5 +32,22 @@ class CPACategoryAdmin(admin.ModelAdmin):
 
 @admin.register(CPALink)
 class CPALinkAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'created_at')
+    list_display = ('title','text','category','slug','slug', 'color', 'button_text', 'created_at')
     list_filter = ('category', 'created_at')
+
+@admin.register(UserEmail)
+class UserEmailAdmin(admin.ModelAdmin):
+    list_display = ('email', 'timestamp')
+    list_filter = ('email', 'timestamp')
+
+@admin.register(ContactMessage)
+class ContactMessageAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'subject')
+    list_filter = ('subject',)
+    search_fields = ('name', 'email', 'subject')
+
+@admin.register(UserData)
+class UserDataAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'country', 'phone_number')
+    list_filter = ('country',)
+    search_fields = ('name', 'email', 'phone_number')

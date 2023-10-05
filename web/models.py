@@ -74,3 +74,28 @@ class CPALink(models.Model):
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
+class UserEmail(models.Model):
+    email = models.EmailField(unique=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email
+
+
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    subject = models.CharField(max_length=200)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.subject
+
+class UserData(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    country = models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.name
