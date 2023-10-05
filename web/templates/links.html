@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container mt-5">
+                <!-- Display blog posts -->
+        <div class="row">
+            {% for blog in blogs %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="{{ blog.title_image.url }}" style="height: 235px" class="card-img-top" alt="Blog Image">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{% url 'cpa-detail' blog.slug %}">{{ blog.title }}</a>
+                            </h5>
+                            <!-- Add other details about the blog if needed -->
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination controls -->
+        <div class="pagination mt-3">
+            <ul class="pagination justify-content-center">
+                {% if blogs.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1" aria-label="First">
+                            <span aria-hidden="true">&laquo;&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ blogs.previous_page_number }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% for i in blogs.paginator.page_range %}
+                    <li class="page-item {% if i == blogs.number %}active{% endif %}">
+                        <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                    </li>
+                {% endfor %}
+
+                {% if blogs.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ blogs.next_page_number }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ blogs.paginator.num_pages }}" aria-label="Last">
+                            <span aria-hidden="true">&raquo;&raquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+
+    </div>
+{% endblock %}

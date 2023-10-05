@@ -1,0 +1,324 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Coupon Haven</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Bootstrap News Template - Free HTML Templates" name="keywords">
+    <meta content="Bootstrap News Template - Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.png' %}" rel="icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="{% static 'lib/slick/slick.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/slick/slick-theme.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+<!-- Top Bar Start -->
+<div class="top-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="tb-contact">
+                    <p><i class="fas fa-envelope"></i><a href="mailto:coupanhaven@gmail.com">coupanhaven@gmail.com</a>
+                    </p>
+                    <p><i class="fas fa-phone-alt"></i><a href="tel:+44 7494 235732">+44 7494 235732</a></p>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="tb-menu">
+                    <a href="{% url 'privacy' %}">Privacy</a>
+                    <a href="{% url 'contact' %}">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Top Bar Start -->
+
+<!-- Brand Start -->
+<div class="brand">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4">
+                <div class="b-logo">
+                    <a href="{% url 'home' %}">
+                        <img src="{% static 'img/logo.svg' %}" alt="Logo">
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-4">
+                {#                        <div class="b-ads">#}
+                {#                            <a href="https://htmlcodex.com">#}
+                {#                                <img src="{% static 'img/ads-1.jpg' %}" alt="Ads">#}
+                {#                            </a>#}
+                {#                        </div>#}
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <div class="b-search">
+                    <input type="search" placeholder="Search" id="search-input">
+                    <button><i class="fa fa-search"></i></button>
+                    <div id="search-results"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Brand End -->
+
+<!-- Nav Bar Start -->
+<div class="nav-bar">
+    <div class="container">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+            <a href="#" class="navbar-brand">MENU</a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav mr-auto">
+                    <a href="{% url 'home' %}" class="nav-item nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+                    <a href="{% url 'offer' %}"
+                       class="nav-item nav-link {% if request.path == '/offers/' %}active{% endif %}">Offers</a>
+                    <a href="{% url 'blog' %}"
+                       class="nav-item nav-link {% if request.path == '/blog/' %}active{% endif %}">Blogs</a>
+                    <a href="{% url 'contact' %}"
+                       class="nav-item nav-link {% if request.path == '/contact/' %}active{% endif %}">Contact Us</a>
+                </div>
+
+                <div class="social ml-auto">
+                    <a href=""><i class="fab fa-twitter"></i></a>
+                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a href=""><i class="fab fa-instagram"></i></a>
+                    <a href=""><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Nav Bar End -->
+
+{% block content %}
+{% endblock content %}
+
+
+<!-- Footer Start -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-widget">
+                    <h3 class="title">Get in Touch</h3>
+                    <div class="contact-info">
+                        <p>
+                            <i class="fa fa-map-marker"></i>
+                            <a href="https://www.google.com/maps/search/?q=66+the+Avenue+Acocks+Green,+Birmingham,+UK"
+                               target="_blank">
+                                66 the Avenue Acocks Green, Birmingham, UK
+                            </a>
+                        </p>
+
+                        <p><i class="fas fa-envelope"></i><a
+                                href="mailto:coupanhaven@gmail.com">coupanhaven@gmail.com</a>
+                        </p>
+                        <p><i class="fas fa-phone-alt"></i><a href="tel:+44 7494 235732">+44 7494 235732</a></p>
+                        <div class="social">
+                            <a href=""><i class="fab fa-twitter"></i></a>
+                            <a href=""><i class="fab fa-facebook-f"></i></a>
+                            <a href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a href=""><i class="fab fa-instagram"></i></a>
+                            <a href=""><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-widget">
+                    <h3 class="title">Useful Links</h3>
+                    <ul>
+                        {% for blog in random_blogs %}
+                            <li><a href="{% url 'blog-detail' blog.slug %}">
+                                {{ blog.title|truncatewords:3 }}{% if blog.title.split|length > 3 %}...{% endif %}
+                            </a></li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-widget">
+                    <h3 class="title">Quick Links</h3>
+                    <ul>
+                        {% for cpa in random_cpas %}
+                            <li><a href="{% url 'cpa-detail' cpa.slug %}">{{ cpa.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-widget">
+                    <h3 class="title">Newsletter</h3>
+                    <div class="newsletter">
+                        <p>
+                            Let's be realistic, online spending is a part of modern life. But why not ensure that every
+                            online purchase you make is a smart one?
+                        </p>
+                        <form>
+                            <input class="form-control" type="email" placeholder="Your email here">
+                            <button class="btn">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+<!-- Footer Menu Start -->
+<div class="footer-menu">
+    <div class="container">
+        <div class="f-menu">
+            <a href="{% url 'privacy' %}">Privacy policy</a>
+            <a href="{% url 'contact' %}">Contact us</a>
+        </div>
+    </div>
+</div>
+<!-- Footer Menu End -->
+
+<!-- Footer Bottom Start -->
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 copyright">
+                <p>Copyright &copy; <a href="https://coupanhaven.com">COUPON HAVEN</a>. All Rights Reserved</p>
+            </div>
+
+            <div class="col-md-6 template-by">
+                <p><a href="https://coupanhaven.com">COUPON HAVEN</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer Bottom End -->
+
+<!-- Back to Top -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#search-input').empty();
+        const searchInput = $('#search-input');
+        const searchResults = $('#search-results');
+
+        searchInput.on('input', function () {
+            const query = searchInput.val();
+
+            if (query === '') {
+                // If the search input is empty, hide the search results
+                searchResults.hide();
+            } else {
+                // If the search input is not empty, show the search results
+                $.ajax({
+                    url: '/live-search/',  // Update with your URL
+                    data: {'q': query},
+                    success: function (data) {
+                        // Clear previous results
+                        searchResults.empty();
+
+                        // Display CPALinks
+                        if (data.cpalinks.length > 0) {
+                            searchResults.append('<h6>CPALinks</h6>');
+                            const cpalinksList = $('<ul>');
+                            data.cpalinks.forEach(function (cpa) {
+                                const listItem = $('<li>');
+
+                                // Create a link with href to cpa-detail for CPALinks or link-detail for links
+                                const link = $('<a>');
+                                 var blogDetailURL = "{% url 'cpa-detail' 'placeholder' %}";
+                                blogDetailURL = blogDetailURL.replace('placeholder', cpa.slug);
+                                link.attr('href', blogDetailURL);
+                                link.text(cpa.title);
+
+                                // Create an image tag
+                                const image = $('<img>');
+                                image.attr('src', cpa.image_url);
+                                image.attr('alt', cpa.title);
+
+                                // Append the image and link to the list item
+                                listItem.append(image);
+                                listItem.append(link);
+
+                                // Append the list item to the CPALinks list
+                                cpalinksList.append(listItem);
+                            });
+                            searchResults.append(cpalinksList);
+                        }
+
+                        // Display BlogPosts
+                        if (data.blogposts.length > 0) {
+                            searchResults.append('<h6>Blog Posts</h6>');
+                            const blogpostsList = $('<ul>');
+                            data.blogposts.forEach(function (blog) {
+                                const listItem = $('<li>');
+
+                                // Create a link with href to blog-detail for BlogPosts
+                                const link = $('<a>');
+                                var blogDetailURL = "{% url 'blog-detail' 'placeholder' %}";
+                                blogDetailURL = blogDetailURL.replace('placeholder', blog.slug);
+                                link.attr('href', blogDetailURL);
+                                link.text(blog.title);
+
+                                // Create an image tag
+                                const image = $('<img>');
+                                image.attr('src', blog.image_url);
+                                image.attr('alt', blog.title);
+
+                                // Append the image and link to the list item
+                                listItem.append(image);
+                                listItem.append(link);
+
+                                // Append the list item to the Blog Posts list
+                                blogpostsList.append(listItem);
+                            });
+                            searchResults.append(blogpostsList);
+                        }
+
+                        // Show the search results
+                        searchResults.show();
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('AJAX Error:', status, error);
+                        // Handle the error here (e.g., display an error message to the user)
+                    }
+                });
+            }
+        });
+    });
+
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/slick/slick.min.js' %}"></script>
+
+<!-- Template Javascript -->
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

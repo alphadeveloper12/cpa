@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container-fluid position-relative d-flex justify-content-center align-items-center"
+     style="background-image: url('{{ cpa.background_image.url }}'); background-repeat: no-repeat; background-size: cover; height: 100vh;">
+
+    <!-- Pseudo-element for the background blur -->
+    <div class="background-blur"></div>
+
+    <!-- Hero Section -->
+    <div class="row container">
+        <!-- Left Section with Text and Button -->
+        <div class="col-md-6 d-flex align-items-center order-1">
+            <div class="left-section d-grid justify-content-end align-items-center">
+                <h1 style="color: {{ cpa.color }}; font-size: 60px; font-weight: 700;">{{ cpa.text }}</h1>
+                <div class="d-flex align-items-center justify-content-start">
+                    <a href="{{ cpa.link }}" style="padding: 20px 50px; font-size: 18px; font-weight: 700"
+                       class="btn btn-primary">{{ cpa.button_text }}</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section with Product Image -->
+        <div class="col-md-6 d-flex justify-content-center align-items-center order-md-1">
+            <div class="right-section" style="padding-top: 30px; padding-bottom: 30px">
+                <img src="{{ cpa.product_image.url }}" alt="{{ cpa.title }}" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
